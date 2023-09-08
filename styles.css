@@ -1,0 +1,81 @@
+/* Applies to entire document */
+:root {
+  --font-color: blue;
+  --background-color: aqua;
+}
+
+/* Body of page */
+body {
+  color: var(--font-color);
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  position: relative;
+}
+
+/* Underline of h1 element */
+h1::after {
+  --height: 2px;
+  --color: var(--font-color);
+
+  content: "";
+  width: 50%;
+  height: var(--height);
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(var(--height) * -1);
+  position: absolute;
+  background: var(--color);
+}
+
+/* Paragraph */
+p {
+  padding: 30px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  outline: 1px solid var(--font-color);
+}
+
+/* Un-Ordered List */
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  list-style: disc;
+  margin: 0;
+  padding: 30px;
+}
+
+/* List item */
+li {
+  padding: 0;
+  margin: 0;
+}
+
+/* Link */
+button {
+  --link-background: blue;
+  --link-text-color: white;
+
+  text-decoration: none;
+  color: var(--link-text-color);
+  background: var(--link-background);
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+  body {
+    /* Background color changes to aqua when page width is larger that 600 pixels */
+    background-color: var(--background-color);
+  }
+}
